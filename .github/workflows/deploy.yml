@@ -27,12 +27,12 @@ jobs:
               sudo mkdir -p /var/www/html/cicd/2305093
             fi
 
-            sudo cd /var/www/html/cicd/
+            cd /var/www/html/cicd/2305093
 
             if [ ! -d ".git" ]; then
-              sudo git clone https://github.com/${{ github.repository }}.git .
+              git clone https://github.com/${{ github.repository }}.git .
             else
-              sudo git pull origin main
+              git pull origin main
             fi
 
             sudo chmod -R 755 /var/www/html/cicd
