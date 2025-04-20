@@ -20,19 +20,19 @@ jobs:
           port: 22
           script: |
             if [ ! -d "/var/www/html/cicd" ]; then
-              mkdir -p /var/www/html/cicd
+              sudo mkdir -p /var/www/html/cicd
             fi
 
             if [ ! -d "/var/www/html/cicd/2305093" ]; then
-              mkdir -p /var/www/html/cicd/2305093
+              sudo mkdir -p /var/www/html/cicd/2305093
             fi
 
-            cd /var/www/html/cicd/
+            sudo cd /var/www/html/cicd/
 
             if [ ! -d ".git" ]; then
-              git clone https://github.com/${{ github.repository }}.git .
+              sudo git clone https://github.com/${{ github.repository }}.git .
             else
-              git pull origin main
+              sudo git pull origin main
             fi
 
-            chmod -R 755 /var/www/html/cicd
+            sudo chmod -R 755 /var/www/html/cicd
